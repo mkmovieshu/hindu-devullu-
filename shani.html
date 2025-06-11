@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+  <meta charset="UTF-8">
+  <title>శని దేవుడు</title>
+  <style>
+    body {
+      background: #f3e5f5;
+      font-family: 'Noto Serif Telugu', serif;
+      padding: 20px;
+      color: #311b92;
+    }
+    h1 {
+      text-align: center;
+    }
+    #content {
+      background: #ffffff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 8px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+    }
+    .btns {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+    }
+    button {
+      font-size: 16px;
+      padding: 10px 20px;
+      background-color: #512da8;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #673ab7;
+    }
+    .back-link {
+      display: block;
+      margin-bottom: 20px;
+      text-decoration: none;
+      color: #4e342e;
+    }
+  </style>
+</head>
+<body>
+  <a class="back-link" href="index.html">← హోమ్‌కు తిరుగు</a>
+  <h1>శని దేవుని సమాచారం</h1>
+  <div id="content">కంటెంట్ లోడ్ అవుతోంది...</div>
+  <div class="btns">
+    <button onclick="playSpeech()">▶️ చదవు</button>
+    <button onclick="pauseSpeech()">⏸️ ఆపు</button>
+  </div>
+  <script>
+    let utterance;
+    fetch("content/shani-content.html")
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById("content").innerHTML = data;
+      });
+
+    function playSpeech() {
+      const text = document.getElementById("content").innerText;
+      if (speechSynthesis.speaking) {
+        speechSynthesis.resume();
+      } else {
+        utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = "te-IN";
+        speechSynthesis.speak(utterance);
+      }
+    }
+
+    function pauseSpeech() {
+      speechSynthesis.pause();
+    }
+  </script>
+</body>
+</html>
