@@ -1,47 +1,54 @@
-
 body {
   font-family: 'Noto Serif Telugu', serif;
-  background-color: #fffbe7;
-  color: #3e2723;
+  background-color: #fff8f0;
+  color: #3b240b;
+  margin: 0;
   padding: 20px;
+  line-height: 1.6;
 }
+
+h1, h2 {
+  text-align: center;
+  color: #8b0000;
+}
+
 .icon-container {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
   justify-content: center;
+  margin-top: 30px;
+  gap: 15px;
 }
+
 .icon-box {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 140px;
-  height: 140px;
-  background-color: #ffe0b2;
-  color: #4e342e;
-  font-size: 18px;
-  font-weight: bold;
-  text-align: center;
-  border-radius: 15px;
+  background: #ffe4b5;
+  padding: 15px 25px;
+  border-radius: 10px;
   text-decoration: none;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-  transition: all 0.3s ease;
-}
-.icon-box:hover {
-  background-color: #ffb74d;
-  transform: scale(1.05);
-  color: #ffffff;
-}
-.play-button, .pause-button {
+  color: #4b2e05;
+  font-weight: bold;
   font-size: 18px;
-  padding: 8px 15px;
-  margin: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transition: 0.3s ease;
+}
+
+.icon-box:hover {
+  background: #ffcc80;
+  transform: scale(1.05);
+}
+
+.play-button, .pause-button {
   background-color: #ff9800;
   color: white;
+  padding: 10px 20px;
+  margin-top: 20px;
+  margin-right: 10px;
   border: none;
-  border-radius: 8px;
+  border-radius: 5px;
+  font-size: 16px;
   cursor: pointer;
 }
+
 .play-button:hover, .pause-button:hover {
-  background-color: #fb8c00;
+  background-color: #e65100;
 }
