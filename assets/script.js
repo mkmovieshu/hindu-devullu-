@@ -1,11 +1,18 @@
+let synth = window.speechSynthesis;
+let utterance;
 
-let speech;
-function playText(id) {
-  const text = document.getElementById(id).innerText;
-  speech = new SpeechSynthesisUtterance(text);
-  speech.lang = 'te-IN';
-  window.speechSynthesis.speak(speech);
+function playText(elementId) {
+  if (synth.speaking) {
+    synth.cancel();
+  }
+  const text = document.getElementById(elementId).innerText;
+  utterance = new SpeechSynthesisUtterance(text);
+  utterance.lang = 'te-IN';
+  synth.speak(utterance);
 }
+
 function pauseSpeech() {
-  window.speechSynthesis.cancel();
+  if (synth.speaking) {
+    synth.cancel();
+  }
 }
