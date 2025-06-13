@@ -1,0 +1,47 @@
+
+body {
+  font-family: 'Noto Serif Telugu', serif;
+  background-color: #fffbe7;
+  color: #3e2723;
+  padding: 20px;
+}
+.icon-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+.icon-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 140px;
+  height: 140px;
+  background-color: #ffe0b2;
+  color: #4e342e;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 15px;
+  text-decoration: none;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+}
+.icon-box:hover {
+  background-color: #ffb74d;
+  transform: scale(1.05);
+  color: #ffffff;
+}
+.play-button, .pause-button {
+  font-size: 18px;
+  padding: 8px 15px;
+  margin: 10px;
+  background-color: #ff9800;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.play-button:hover, .pause-button:hover {
+  background-color: #fb8c00;
+}
