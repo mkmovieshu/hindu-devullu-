@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>సుబ్రహ్మణ్య స్వామి</title>
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+  <h1>సుబ్రహ్మణ్య స్వామి</h1>
+  <p>సుబ్రహ్మణ్య స్వామి కార్తికేయుడు అని కూడా పిలుస్తారు. ఈ పేజీలో సుబ్రహ్మణ్య స్వామి గురించి మరిన్ని వివరాలు ఉంటాయి.</p>
+  <a href="index.html">వెనక్కి వెళ్ళు</a>
+</body>
+</html>
