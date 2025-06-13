@@ -12,41 +12,123 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
-      height: 100vh;
+      padding: 40px 20px;
       color: #333;
+      overflow-x: hidden;
     }
 
     h1 {
-      font-size: 3em;
-      margin-bottom: 20px;
-      text-shadow: 2px 2px 4px #aaa;
-      animation: fadeIn 1s ease-in-out;
-    }
-
-    p {
-      font-size: 1.2em;
-      line-height: 1.6;
+      font-size: 3.5em;
+      margin-bottom: 25px;
+      text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2);
+      color: #e44d26; /* Sun-like color */
+      animation: fadeInDown 1s ease-in-out;
       text-align: center;
-      padding: 20px;
-      background-color: rgba(255, 255, 255, 0.8);
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      animation: slideIn 1s ease-in-out;
     }
 
-    a {
+    .container {
+      max-width: 900px;
+      width: 100%;
+      background-color: #ffffff;
+      border-radius: 15px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+      padding: 30px;
+      margin-top: 20px;
+      animation: slideInUp 1s ease-out;
+    }
+
+    .accordion-header {
+      font-size: 2em;
+      margin-top: 30px;
+      margin-bottom: 15px;
+      color: #ff9800; /* Orange/Gold for subheadings */
+      border-bottom: 2px solid #ffcc80;
+      padding-bottom: 5px;
+      cursor: pointer; /* Makes it look clickable */
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: color 0.3s ease;
+      animation: fadeIn 1.2s ease-in-out;
+    }
+
+    .accordion-header:hover {
+      color: #e68a00;
+    }
+
+    .accordion-header::after {
+      content: '+'; /* Plus icon */
+      font-size: 1.2em;
+      transition: transform 0.3s ease;
+    }
+
+    .accordion-header.active::after {
+      content: '-'; /* Minus icon when active */
+      transform: rotate(180deg);
+    }
+
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease-out; /* Smooth slide animation */
+      padding: 0 10px;
+    }
+
+    .accordion-content p, .accordion-content ul {
+      font-size: 1.1em;
+      line-height: 1.8;
+      margin-bottom: 15px;
+      padding-top: 10px; /* Space between header and content */
+    }
+
+    .accordion-content ul {
+      list-style-type: disc;
+      margin-left: 20px;
+    }
+
+    .accordion-content li {
+      margin-bottom: 8px;
+    }
+
+    .back-link {
       display: inline-block;
-      padding: 10px 20px;
-      background-color: #007bff;
+      padding: 12px 25px;
+      background-color: #4CAF50; /* Green for back button */
       color: white;
       text-decoration: none;
-      border-radius: 5px;
-      transition: background-color 0.3s ease;
+      border-radius: 8px;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      margin-top: 30px;
+      font-weight: bold;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
 
-    a:hover {
-      background-color: #0056b3;
+    .back-link:hover {
+      background-color: #45a049;
+      transform: translateY(-3px);
+    }
+
+    /* Animations */
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes slideInUp {
+      from {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     @keyframes fadeIn {
@@ -58,21 +140,133 @@
       }
     }
 
-    @keyframes slideIn {
-      from {
-        transform: translateY(-50px);
-        opacity: 0;
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2.5em;
       }
-      to {
-        transform: translateY(0);
-        opacity: 1;
+      .accordion-header {
+        font-size: 1.8em;
+      }
+      .accordion-content p, .accordion-content ul {
+        font-size: 1em;
+      }
+      .container {
+        padding: 20px;
+        margin-top: 15px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 2em;
+      }
+      .accordion-header {
+        font-size: 1.5em;
+      }
+      .accordion-content p, .accordion-content ul {
+        font-size: 0.9em;
+      }
+      .back-link {
+        padding: 10px 20px;
       }
     }
   </style>
 </head>
 <body>
   <h1>సూర్య దేవుడు</h1>
-  <p>సూర్య దేవుడు సకల లోకాలకు వెలుగును ప్రసాదించే దేవుడు. ఈ పేజీలో సూర్య దేవుని గురించి మరిన్ని వివరాలు ఉంటాయి.</p>
-  <a href="index.html">వెనక్కి వెళ్ళు</a>
+  <div class="container">
+    <p>సూర్య దేవుడు సకల లోకాలకు వెలుగును ప్రసాదించే దేవుడు. హిందూ మతంలో సూర్యుడిని ప్రత్యక్ష దైవంగా పూజిస్తారు. సకల జీవరాశికి ప్రాణాధారం సూర్యుడే.</p>
+
+    <div class="accordion-item">
+      <div class="accordion-header">సూర్య దేవుని పుట్టుక</div>
+      <div class="accordion-content">
+        <p>వేదాల ప్రకారం, సూర్య దేవుడు కశ్యప మహర్షి మరియు అదితి దేవిల కుమారుడు. ఈయన పన్నెండు మంది ఆదిత్యులలో ఒకరు. సూర్యుడు తేజస్సు, శక్తి మరియు ఆరోగ్యాన్ని ప్రసాదిస్తాడని నమ్ముతారు. కొన్ని పురాణాల ప్రకారం, ఈయన విశ్వకర్మ కుమార్తె సంజ్ఞాదేవిని వివాహం చేసుకున్నారు.</p>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <div class="accordion-header">సూర్యదేవుడు ఎలాంటి వరాలు ఇస్తాడు?</div>
+      <div class="accordion-content">
+        <p>సూర్య దేవుని పూజించడం వల్ల అనేక వరాలు లభిస్తాయని హిందూ భక్తులు నమ్ముతారు:</p>
+        <ul>
+          <li>ఆరోగ్యం మరియు దీర్ఘాయువు</li>
+          <li>శక్తి మరియు తేజస్సు</li>
+          <li>కళ్ళు, ఎముకలు మరియు గుండె సంబంధిత సమస్యల నుండి ఉపశమనం</li>
+          <li>ధనధాన్యాలు మరియు శ్రేయస్సు</li>
+          <li>చెడు శక్తుల నుండి రక్షణ</li>
+          <li>ఆత్మవిశ్వాసం మరియు నాయకత్వ లక్షణాలు</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <div class="accordion-header">సూర్యదేవునికి ఎలా పూజలు చేయాలి?</div>
+      <div class="accordion-content">
+        <p>సూర్య దేవుని పూజించడానికి కొన్ని సాధారణ పద్ధతులు:</p>
+        <ul>
+          <li>**సూర్య నమస్కారాలు:** ప్రతిరోజూ ఉదయం సూర్యోదయం సమయంలో సూర్య నమస్కారాలు చేయడం వల్ల శారీరక, మానసిక ఆరోగ్యం చేకూరుతుంది.</li>
+          <li>**అర్ఘ్య ప్రదానం:** ఉదయించే సూర్యుడికి రాగిపాత్రతో నీటిని సమర్పించడం (అర్ఘ్యం ఇవ్వడం) వల్ల ఆరోగ్యం, శాంతి లభిస్తాయి.</li>
+          <li>**ఆదిత్య హృదయం:** ఆదిత్య హృదయ స్తోత్రాన్ని పఠించడం వల్ల శత్రువులపై విజయం, ధైర్యం లభిస్తాయి.</li>
+          <li>**ఉపవాసం:** ఆదివారం సూర్యునికి ప్రత్యేకమైన రోజు. ఈ రోజున ఉపవాసం ఉండటం లేదా నమకాలతో పూజలు చేయడం మంచిది.</li>
+          <li>**దానాలు:** గోధుమలు, ఎర్రని వస్త్రాలు, రాగి పాత్రలు వంటివి దానం చేయడం శుభప్రదం.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <div class="accordion-header">సూర్యదేవునికి ప్రముఖ ఆలయాలు</div>
+      <div class="accordion-content">
+        <p>భారతదేశంలో సూర్య దేవునికి అంకితం చేయబడిన కొన్ని ప్రముఖ ఆలయాలు:</p>
+        <ul>
+          <li>**కోణార్క్ సూర్య దేవాలయం, ఒడిశా:** ఇది ప్రపంచ ప్రసిద్ధి చెందిన ఆలయం మరియు యునెస్కో ప్రపంచ వారసత్వ ప్రదేశం.</li>
+          <li>**మోధేరా సూర్య దేవాలయం, గుజరాత్:** అత్యంత సుందరమైన శిల్పకళకు ప్రసిద్ధి.</li>
+          <li>**సూర్యనార్ కోవిల్, తమిళనాడు:** నవగ్రహ దేవాలయాలలో సూర్య గ్రహానికి అంకితం చేయబడిన ఆలయం.</li>
+          <li>**అర్సవల్లి సూర్యనారాయణ స్వామి దేవాలయం, ఆంధ్రప్రదేశ్:** శ్రీకాకుళం జిల్లాలో ఉన్న పురాతన సూర్య దేవాలయం.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <div class="accordion-header">రవాణా మార్గాలు (ఆలయాలకు)</div>
+      <div class="accordion-content">
+        <p>పైన పేర్కొన్న ఆలయాలకు చేరుకోవడానికి సాధారణ రవాణా మార్గాలు:</p>
+        <ul>
+          <li>**విమాన మార్గం:** దగ్గరలోని విమానాశ్రయానికి చేరుకుని, అక్కడి నుండి రోడ్డు మార్గంలో లేదా రైలు మార్గంలో ప్రయాణించవచ్చు. (ఉదా: కోణార్క్ - భువనేశ్వర్ విమానాశ్రయం).</li>
+          <li>**రైలు మార్గం:** దేశంలోని చాలా ప్రధాన నగరాల నుండి ఈ ఆలయాలకు దగ్గరగా ఉన్న రైల్వే స్టేషన్లకు రైళ్లు అందుబాటులో ఉంటాయి.</li>
+          <li>**రోడ్డు మార్గం:** జాతీయ రహదారులు మరియు రాష్ట్ర రహదారుల ద్వారా ఈ ఆలయాలకు సులభంగా చేరుకోవచ్చు. బస్సులు మరియు ప్రైవేట్ వాహనాలు విస్తృతంగా అందుబాటులో ఉంటాయి.</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+  <a href="index.html" class="back-link">వెనక్కి వెళ్ళు</a>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const accordionHeaders = document.querySelectorAll('.accordion-header');
+
+      accordionHeaders.forEach(header => {
+        header.addEventListener('click', function() {
+          // Close all other open accordions
+          accordionHeaders.forEach(otherHeader => {
+            if (otherHeader !== this && otherHeader.classList.contains('active')) {
+              otherHeader.classList.remove('active');
+              otherHeader.nextElementSibling.style.maxHeight = null;
+            }
+          });
+
+          // Toggle the clicked accordion
+          this.classList.toggle('active');
+          const content = this.nextElementSibling;
+          if (content.style.maxHeight) {
+            content.style.maxHeight = null; // Collapse
+          } else {
+            content.style.maxHeight = content.scrollHeight + "px"; // Expand to full height
+          }
+        });
+      });
+    });
+  </script>
 </body>
 </html>
