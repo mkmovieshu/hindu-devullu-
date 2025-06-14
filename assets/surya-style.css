@@ -1,0 +1,168 @@
+/* CSS Styling starts here */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+  color: #333;
+  overflow-x: hidden;
+}
+
+/* Main Title Styling */
+h1 {
+  font-size: 3.5em;
+  margin-bottom: 25px;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2);
+  color: #e44d26; /* Sun-like color */
+  animation: fadeInDown 1s ease-in-out;
+  text-align: center;
+  padding: 15px 30px;
+  background-color: #ffe0b2; /* Light orange background for title */
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Main Content Box */
+.main-content-box {
+  max-width: 900px;
+  width: 100%;
+  background-color: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  padding: 30px;
+  margin-top: 20px;
+  animation: slideInUp 1s ease-out;
+}
+
+/* General Paragraph and List Styling within content */
+.main-content-box > p,
+.accordion-content p,
+.accordion-content ul {
+  font-size: 1.1em;
+  line-height: 1.8;
+  margin-bottom: 15px;
+}
+
+.accordion-content ul {
+  list-style-type: disc;
+  margin-left: 20px;
+}
+
+.accordion-content li {
+  margin-bottom: 8px;
+}
+
+/* Accordion Header Styling */
+.accordion-header {
+  font-size: 1.8em; /* Slightly smaller than h2, but still prominent */
+  margin-top: 25px; /* Spacing between accordion items */
+  padding: 15px 25px;
+  background-color: #ffb74d; /* Default background for header */
+  color: #7b3f00; /* Darker orange text for contrast */
+  border-radius: 10px; /* Rounded corners for header */
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color 0.4s ease, color 0.4s ease, transform 0.2s ease; /* Smooth transition for color change */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.accordion-header:hover {
+  background-color: #ffa726; /* Slightly darker on hover */
+  transform: translateY(-2px); /* Slight lift effect */
+}
+
+.accordion-header.active {
+  background-color: #e65100; /* Darker orange when active */
+  color: white; /* White text when active */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.accordion-header::after {
+  content: '+';
+  font-size: 1.2em;
+  transition: transform 0.3s ease, color 0.3s ease;
+  font-weight: bold;
+}
+
+.accordion-header.active::after {
+  content: '-';
+  transform: rotate(180deg);
+  color: white;
+}
+
+/* Accordion Content Styling */
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.6s ease-in-out; /* Slower and smoother slide */
+  padding: 0 20px; /* Padding for content */
+  background-color: #fffaf0; /* Off-white background for content */
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.05); /* Subtle inner shadow */
+  margin-bottom: 15px; /* Space after content when expanded */
+}
+
+.accordion-content > *:first-child { /* Adjust top padding for content */
+    padding-top: 15px;
+}
+
+.accordion-content > *:last-child { /* Adjust bottom padding for content */
+    padding-bottom: 15px;
+}
+
+/* Back Link Styling */
+.back-link {
+  display: inline-block;
+  padding: 12px 25px;
+  background-color: #4CAF50; /* Green for back button */
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-top: 30px;
+  font-weight: bold;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.back-link:hover {
+  background-color: #45a049;
+  transform: translateY(-3px);
+}
+
+/* Animations */
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-50px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInUp {
+  from { opacity: 0; transform: translateY(50px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  h1 { font-size: 2.8em; padding: 10px 20px; }
+  .accordion-header { font-size: 1.5em; padding: 12px 20px; }
+  .accordion-content p, .accordion-content ul { font-size: 1em; }
+  .main-content-box { padding: 20px; margin-top: 15px; }
+}
+
+@media (max-width: 480px) {
+  h1 { font-size: 2.2em; padding: 8px 15px; }
+  .accordion-header { font-size: 1.2em; padding: 10px 15px; }
+  .accordion-content p, .accordion-content ul { font-size: 0.9em; }
+  .back-link { padding: 10px 20px; }
+}
+/* CSS Styling ends here */
